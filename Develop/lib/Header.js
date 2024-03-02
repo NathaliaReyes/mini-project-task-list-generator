@@ -1,4 +1,5 @@
 const Component = require("./Component.js");
+const { formatDate } = require('./date.js');
 
 class Header extends Component{
     constructor() {
@@ -6,7 +7,9 @@ class Header extends Component{
     }
 
     render() {
-        
-        return `<header><h1>Todo Today</h1><p>{DATE-HERE}</p></header>`
+        return `<header><h1>Todo Today</h1>
+        <p>${formatDate(new Date())}</p></header>`
     }
 }
+
+module.exports = Header;

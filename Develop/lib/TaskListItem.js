@@ -14,12 +14,14 @@ class TaskListItem extends Component{
         
         if(this.priority === true) {
             return `<li class="task-item-priority">
-                {INNER-HTML}
+                ${this.text}
             </li>`;
         } else {
             return `<li class="task-item">
-                {INNER-HTML}
+                ${this.text}
             </li>`;
         }
     }
 }
+
+module.exports = TaskListItem;

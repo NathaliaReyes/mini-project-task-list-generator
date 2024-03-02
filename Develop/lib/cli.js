@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+// Import the module path in Node.js with the join function
 const { join } = require('path');
 const { writeFile } = require('fs/promises');
 const { createDocument } = require('./document');

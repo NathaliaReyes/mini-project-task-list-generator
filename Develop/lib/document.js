@@ -7,8 +7,10 @@ function createDocument(title, tasks = []) {
   // TODO: Create a new Header
   const header = new Header();
   // TODO: Create new TaskListItems from the provided tasks
+  const taskList = new TaskList(tasks);
   
   // TODO: Add TaskListItems to a new TaskList
+  const taskListHTML = taskList.render();
 
   // TODO: Modify the template below to include your title, Header, and TaskList
   return `<!DOCTYPE html>
@@ -31,3 +33,4 @@ function createDocument(title, tasks = []) {
 }
 
 module.exports = { createDocument };
+
