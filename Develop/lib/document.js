@@ -5,12 +5,14 @@ const TaskListItem = require('./TaskListItem.js');
 
 function createDocument(title, tasks = []) {
   // TODO: Create a new Header
-  const header = new Header();
+  const header = new Header().render();
   // TODO: Create new TaskListItems from the provided tasks
-  const taskList = new TaskList(tasks);
+  const taskListItems = tasks.map(
+    (t) => new TaskListItem([t.text], t.priority)
+  );
+  const taskList = new TaskList(taskListItems).render();
   
   // TODO: Add TaskListItems to a new TaskList
-  const taskListHTML = taskList.render();
 
   // TODO: Modify the template below to include your title, Header, and TaskList
   return `<!DOCTYPE html>
@@ -20,12 +22,12 @@ function createDocument(title, tasks = []) {
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>${title}</title>
-      <link rel="stylesheet" href="../dist/style.css" />
+      <link rel="stylesheet" href="./styles.css" />
     </head>
     <body>
       <div class="card">
-        ${header.render()}
-        YOUR TASKLIST
+        ${header}
+        ${taskList}
       </div>
     </body>
   </html>

@@ -1,9 +1,8 @@
 const Component = require("./Component.js");
 
 class TaskListItem extends Component{
-    constructor(children, priority) {
+    constructor(children, priority = false) {
         super(children);
-
         this.priority = priority;
     }
 
@@ -11,16 +10,11 @@ class TaskListItem extends Component{
     // class and returns a string of HTML following this format: `<li class="tasks-item">{INNER_HTML}</li>`.
 
     render() {
-        
-        if(this.priority === true) {
-            return `<li class="task-item-priority">
-                ${this.text}
-            </li>`;
-        } else {
-            return `<li class="task-item">
-                ${this.text}
-            </li>`;
+        let classNames = 'tasks-item';
+        if (this.priority) {
+        classNames += ' tasks-item-priority';
         }
+        return `<li class="${classNames}">${this.renderInnerHTML()}</li>`;
     }
 }
 

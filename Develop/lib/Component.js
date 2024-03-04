@@ -8,7 +8,15 @@ class Component {
     }
 
     renderInnerHTML() {
-        return this.children.map(child =>child.toString()).join('');
+        // return this.children.map(child =>child.toString()).join('');
+        return this.children
+        .map((child) => {
+          if (typeof child === 'string') {
+            return child;
+          }
+          return child.render();
+        })
+        .join('');
     }
     
 }
